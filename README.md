@@ -1,6 +1,8 @@
 # topkit
 
-Generate Rails app using Topic gems, frameworks and layouts
+Generate Rails app using Topic gems, frameworks and layouts.
+
+Props to [thoughtbot](http://thoughtbot.com)'s [Suspenders](https://github.com/thoughtbot/suspenders) and [Gaslight](http://gaslight.co/home)'s [Sparkler](https://github.com/gaslight/sparkler) for inspiration and influence.
 
 ## Installation
 
@@ -8,7 +10,7 @@ Generate Rails app using Topic gems, frameworks and layouts
 
 ## Usage
 
-    Currently no extra command line options, so simply:
+Currently no extra command line options, so simply:
 
     $ topkit APP_NAME
 

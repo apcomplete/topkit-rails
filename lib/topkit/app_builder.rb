@@ -47,7 +47,7 @@ module Topkit
       g.assets false
       g.test_framework :rspec
       g.view_specs false
-      g.controller_specs false,
+      g.controller_specs false
       g.helper_specs false
       g.routing_specs false
     end

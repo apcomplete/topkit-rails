@@ -39,17 +39,30 @@ module Topkit
       copy_file 'database_cleaner_rspec.rb', 'spec/support/database_cleaner.rb'
     end
 
-    def configure_rspec
+    def configure_rspec_generators
       config = <<-RUBY
     config.generators do |g|
-      g.test_framework :rspec, :view_specs => false, :controller_specs => false,
-        :helper_specs => false, :routing_specs => false, :fixture => true,
-        :fixture_replacement => "factory_girl"
+      g.fixture true
+      g.fixture_replacement "factory_girl"
+      g.assets false
+      g.test_framework :rspec
+      g.view_specs false
+      g.controller_specs false,
+      g.helper_specs false
+      g.routing_specs false
     end
 
       RUBY
 
       inject_into_class 'config/application.rb', 'Application', config
+    end
+
+    def configure_rspec
+      generate "rspec:install"
+    end
+
+    def generate_backbone
+      generate "backbone:install"
     end
 
     def setup_stylesheets

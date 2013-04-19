@@ -1,24 +1,16 @@
-# Topkit
+# topkit
 
-TODO: Write a gem description
+Generate Rails app using Topic gems, frameworks and layouts
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'topkit'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install topkit
 
 ## Usage
 
-TODO: Write usage instructions here
+    Currently no extra command line options, so simply:
+
+    $ topkit APP_NAME
 
 ## Contributing
 
@@ -27,3 +19,7 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## License
+
+topkit is Copyright © 2008-2013 Topic Design. It is free software, and may be redistributed under the terms specified in the LICENSE file.

@@ -1,0 +1,38 @@
+source 'https://rubygems.org'
+
+gem 'rails', '3.2.13'
+
+gem 'mysql2'
+gem 'jquery-rails'
+gem 'rails-backbone'
+gem 'simple_form'
+
+group :development, :test do
+  gem 'thin'
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'faker'
+  gem 'factory_girl_rails'
+end
+
+group :development do
+  gem 'capistrano'
+  gem 'annotate'
+end
+
+group :assets do
+  gem 'bootstrap-sass'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+  gem 'compass-rails'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'capybara-webkit', '>= 0.14.1'
+end
+
+group :staging, :production do
+  gem 'unicorn'
+end

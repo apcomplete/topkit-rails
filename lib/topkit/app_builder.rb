@@ -27,6 +27,10 @@ module Topkit
       copy_file "application_layout.html.erb", "app/views/layouts/application.html.erb", force: true
     end
 
+    def template_database_file
+      template 'database.mysql.yml.erb', 'config/database.yml', force: true
+    end
+
     def enable_database_cleaner
       replace_in_file 'spec/spec_helper.rb',
         'config.use_transactional_fixtures = true',

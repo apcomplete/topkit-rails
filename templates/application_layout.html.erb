@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <%%= render "meta" %>
+  <title><%%= page_title %></title>
+  <%%= stylesheet_link_tag    "application", :media => "all" %>
+  <%%# stylesheet_link_tag    "print", :media => "print" %>
+  <!--[if IE]>
+    <%%# stylesheet_link_tag    "ie", :media => "screen, projection" %>
+  <![endif]-->
+  <%%= csrf_meta_tags %>
+</head>
+<body data-env="<%%= Rails.env %>">
+  <div id="container">
+    <%%= render "status" %>
+    <%%= render "header" %>
+    <div id="content" role="main">
+      <%%= yield %>
+    </div>
+    <%%= render 'shared/footer' %>
+  </div>
+  <%%= javascript_include_tag "application" %>
+</body>
+</html>

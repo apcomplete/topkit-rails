@@ -1,0 +1,6 @@
+<% flash.each do |level,message| %>
+  <%= content_tag :div, class: "notice alert alert-#{(level == 'notice') ? 'info' : 'error'}" do %>
+    <%= link_to '#', class: "close", data: { dismiss: "alert" } %>
+    <%= content_tag :p, message %>
+  <% end %>
+<% end %>

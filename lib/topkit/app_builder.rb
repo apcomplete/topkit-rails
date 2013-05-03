@@ -20,6 +20,8 @@ module Topkit
 
     def create_status_partials
       copy_file '_status.html.erb', 'app/views/application/_status.html.erb'
+      copy_file '_header.html.erb', 'app/views/application/_header.html.erb'
+      copy_file '_footer.html.erb', 'app/views/application/_footer.html.erb'
     end
 
     def create_application_layout

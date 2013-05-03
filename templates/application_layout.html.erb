@@ -10,23 +10,23 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="format-detection" content="telephone=no" />
-  <title><%%= page_title %></title>
-  <%%= stylesheet_link_tag    "application", :media => "all" %>
-  <%%# stylesheet_link_tag    "print", :media => "print" %>
+  <title>Topkit</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%# stylesheet_link_tag    "print", :media => "print" %>
   <!--[if IE]>
-    <%%# stylesheet_link_tag    "ie", :media => "screen, projection" %>
+    <%# stylesheet_link_tag    "ie", :media => "screen, projection" %>
   <![endif]-->
-  <%%= csrf_meta_tags %>
+  <%= csrf_meta_tags %>
 </head>
-<body data-env="<%%= Rails.env %>">
+<body data-env="<%= Rails.env %>">
   <div id="container">
-    <%%= render "status" %>
-    <%%= render "header" %>
+    <%= render "status" %>
+    <%= render "header" %>
     <div id="content" role="main">
-      <%%= yield %>
+      <%= yield %>
     </div>
-    <%%= render 'shared/footer' %>
+    <%= render 'shared/footer' %>
   </div>
-  <%%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application" %>
 </body>
 </html>

@@ -65,10 +65,12 @@ module Topkit
     end
 
     def copy_miscellaneous_files
+      build :setup_stylesheets
     end
 
     def configure_rspec
-      build :configure_rspec
+      build :generate_rspec
+      build :enable_database_cleaner
     end
 
     def configure_backbone

@@ -3,7 +3,8 @@ require 'rails/generators/rails/app/app_generator'
 
 module Topkit
   class AppGenerator < Rails::Generators::AppGenerator
-    class_option :gitlab, type: :string, aliases: '-G', default: false
+    #class_option :gitlab, type: :string, aliases: '-G', default: false
+    class_option :skip_admin, type: :boolean, aliases: '-A', default: false
 
     def finish_template
       invoke :topkit_customization
@@ -82,7 +83,9 @@ module Topkit
     end
 
     def configure_admin
+      return if options[:skip_admin]
       say "Generating devise with admin"
+      build :add_admin_to_gemfile
       build :generate_devise
       build :generate_admin
       build :generate_rich_editor

@@ -99,6 +99,16 @@ module Topkit
       generate "devise:views"
     end
 
+    def add_admin_to_gemfile
+      admin_gems = <<-eos
+      gem 'devise'
+      gem 'rails_admin'
+      gem 'rich'
+      eos
+      inject_into_file 'Gemfile', "\n#{new_gems}", after: /gem 'kaminari'/
+      bundle_command "install"
+    end
+
     def generate_admin
       generate "rails_admin:install"
     end

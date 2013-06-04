@@ -5,11 +5,8 @@ gem 'rails', '3.2.13'
 gem 'mysql2'
 gem 'rails-backbone'
 gem 'simple_form'
-gem 'devise'
-gem 'rails_admin'
 gem 'truncate_html'
 gem 'kaminari'
-gem 'rich'
 
 group :development, :test do
   gem 'thin'

@@ -21,6 +21,8 @@ module Topkit
       invoke :copy_miscellaneous_files
       invoke :configure_rspec
       invoke :configure_backbone
+      invoke :configure_admin
+      invoke :configure_cucumber
       invoke :setup_git
     end
 
@@ -69,12 +71,26 @@ module Topkit
     end
 
     def configure_rspec
+      say "Generating rspec"
       build :generate_rspec
       build :enable_database_cleaner
     end
 
     def configure_backbone
+      say "Generating backbone"
       build :generate_backbone
+    end
+
+    def configure_admin
+      say "Generating devise with admin"
+      build :generate_devise
+      build :generate_admin
+      build :generate_rich_editor
+    end
+
+    def configure_cucumber
+      say "Installing cucumber"
+      build :generate_cucumber
     end
 
     def setup_git

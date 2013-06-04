@@ -92,6 +92,26 @@ module Topkit
       create_file 'app/assets/stylesheets/application.css.scss'
     end
 
+    def generate_devise
+      generate "devise:install"
+      generate "devise User"
+      bundle_command "exec rake db:migrate"
+      generate "devise:views"
+    end
+
+    def generate_admin
+      generate "rails_admin:install"
+    end
+
+    def generate_rich_editor
+      generate "rich:install"
+      bundle_command "exec rake db:migrate"
+    end
+
+    def generate_cucumber
+      generate 'cucumber:install', '--rspec', '--capybara'
+    end
+
     def init_git
       run 'git init'
     end

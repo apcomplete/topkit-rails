@@ -13,6 +13,8 @@ module Topkit
       g.controller_specs false
       g.helper_specs false
       g.routing_specs false
+      g.request_specs false
+      g.stylesheets false
     end
 
       RUBY
@@ -87,7 +89,7 @@ module Topkit
 
     def setup_stylesheets
       remove_file 'app/assets/stylesheets/application.css'
-      create_file 'application.css.scss'
+      create_file 'app/assets/stylesheets/application.css.scss'
     end
 
     def init_git

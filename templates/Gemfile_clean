@@ -3,11 +3,13 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 
 gem 'mysql2'
-gem 'jquery-rails'
 gem 'rails-backbone'
 gem 'simple_form'
 gem 'devise'
 gem 'rails_admin'
+gem 'truncate_html'
+gem 'kaminari'
+gem 'rich'
 
 group :development, :test do
   gem 'thin'
@@ -15,14 +17,16 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'faker'
   gem 'factory_girl_rails'
+  gem 'selenium-webdriver'
 end
 
 group :development do
-  gem 'capistrano'
   gem 'annotate'
+  gem 'seed_dump'
 end
 
 group :assets do
+  gem 'jquery-rails'
   gem 'bootstrap-sass'
   gem 'sass-rails'
   gem 'coffee-rails'
@@ -32,6 +36,7 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'cucumber-rails', :require => false
 end
 
 group :staging, :production do

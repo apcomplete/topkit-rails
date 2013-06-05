@@ -4,7 +4,10 @@ require 'rails/generators/rails/app/app_generator'
 module Topkit
   class AppGenerator < Rails::Generators::AppGenerator
     #class_option :gitlab, type: :string, aliases: '-G', default: false
-    class_option :skip_admin, type: :boolean, aliases: '-A', default: false
+    class_option :skip_admin, type: :boolean, aliases: '-A', default: false,
+      desc: "Skip rails admin generators"
+    class_option :client, type: :string, desc: "Specify client abbreviation"
+    class_option :project, type: :string, desc: "Specify project number"
 
     def finish_template
       invoke :topkit_customization
@@ -80,6 +83,8 @@ module Topkit
     def configure_backbone
       say "Generating backbone"
       build :generate_backbone
+      build :generate_backtrace
+      build :add_relative_url_root if options[:client] and options[:project]
     end
 
     def configure_admin

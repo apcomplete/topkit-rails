@@ -16,9 +16,12 @@
   <!--[if IE]>
     <%# stylesheet_link_tag    "ie", :media => "screen, projection" %>
   <![endif]-->
+  <script type="text/javascript">
+    var BASE_PATH = '<%= ActionController::Base.config.relative_url_root || "" %>';
+  </script>
   <%= csrf_meta_tags %>
 </head>
-<body data-env="<%= Rails.env %>">
+<body>
   <div id="container">
     <%= render "status" %>
     <%= render "header" %>

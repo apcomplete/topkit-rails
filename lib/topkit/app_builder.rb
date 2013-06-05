@@ -79,6 +79,22 @@ module Topkit
       generate "backbone:install"
     end
 
+    def generate_backtrace
+      download_file "https://gist.github.com/apcomplete/4113645/download", "vendor/assets/javascripts/backtrace.js"
+    end
+
+    def add_relative_url_root
+      relative_root = <<-eos
+  #Deploy staging to subdirectory
+  config.action_controller.relative_url_root = '/#{options[:client]}/#{options[:project]}'
+      eos
+      inject_into_file "config/environments/staging.rb", "\n#{relative_root}", after: "config.serve_static_assets = true\n"
+
+      replace_in_file "config.ru",
+        "run #{app_const}",
+        %(map ActionController::Base.config.relative_url_root || "/" do\n  run #{app_const}\nend)
+    end
+
     def enable_database_cleaner
       replace_in_file 'spec/spec_helper.rb',
         'config.use_transactional_fixtures = true',

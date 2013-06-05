@@ -17,6 +17,7 @@ module Topkit
     def topkit_customization
       invoke :configure_generators
       invoke :customize_gemfile
+      invoke :configure_puma
       invoke :setup_database
       invoke :remove_useless_files
       invoke :remove_routes_comment_lines
@@ -40,6 +41,10 @@ module Topkit
       build :replace_gemfile
       bundle_command "install"
       bundle_command "package"
+    end
+
+    def configure_puma
+      build :set_puma_as_default_server
     end
 
     def setup_database

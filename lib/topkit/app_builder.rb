@@ -27,6 +27,14 @@ module Topkit
       copy_file 'Gemfile_clean', 'Gemfile'
     end
 
+    def set_puma_as_default_server
+      config = <<-RUBY
+require 'rack/handler'
+Rack::Handler::WEBrick = Rack::Handler.get(:puma)
+      RUBY
+      inject_into_file "script/rails", config, before: "require 'rails/commands'"
+    end
+
     def template_database_file
       template 'database.mysql.yml.erb', 'config/database.yml', force: true
     end

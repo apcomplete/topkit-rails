@@ -7,9 +7,9 @@ gem 'rails-backbone'
 gem 'simple_form'
 gem 'truncate_html'
 gem 'kaminari'
+gem 'puma'
 
 group :development, :test do
-  gem 'thin'
   gem 'capybara'
   gem 'rspec-rails'
   gem 'faker'
@@ -34,8 +34,4 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
-end
-
-group :staging, :production do
-  gem 'unicorn'
 end

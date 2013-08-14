@@ -126,15 +126,15 @@ Rack::Handler::WEBrick = Rack::Handler.get(:puma)
     def add_admin_to_gemfile
       admin_gems = <<-eos
       gem 'devise'
-      gem 'rails_admin'
+      gem 'activeadmin'
       gem 'rich'
       eos
-      inject_into_file 'Gemfile', "\n#{new_gems}", after: /gem 'kaminari'/
+      inject_into_file 'Gemfile', "\n#{admin_gems}", after: /gem 'kaminari'/
       bundle_command "install"
     end
 
     def generate_admin
-      generate "rails_admin:install"
+      generate "active_admin:install"
     end
 
     def generate_rich_editor
